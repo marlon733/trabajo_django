@@ -1,0 +1,18 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Details about {{ mymember.firstname }} {{ mymember.lastname }}
+{% endblock %}
+
+{% block content %}
+<p style="text-align: center; margin: 1em 0;"><a href="/" style="color: #4CAF50; text-decoration: none; font-weight: bold; font-size: 1.2em; padding: 0.5em 1em; border: 2px solid #4CAF50; border-radius: 5px; transition: background-color 0.3s ease;">HOME</a></p>
+<h1>{{ mymember.firstname }} {{ mymember.lastname }}</h1>
+  
+<p>Phone: {{ mymember.phone }}</p>
+<p>Member since: {{ mymember.joined_date }}</p>
+<p>edad : {{mymember.edad}}</p>
+<p>gmail : {{ mymember.gmail}}</p>
+<p>genero : {{ mymember.genero}}</p>
+
+<p>Back to <a href="/members">Members</a></p>
+{% endblock %}

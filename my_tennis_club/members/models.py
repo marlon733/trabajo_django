@@ -8,3 +8,5 @@ class Member(models.Model):
   gmail = models.EmailField(max_length=100, null=True)
   genero = models.CharField (max_length=100,null=True)
   edad= models.IntegerField(max_length=3, null=True)
+  def __str__(self):
+    return f"{self.firstname} {self.lastname}"
