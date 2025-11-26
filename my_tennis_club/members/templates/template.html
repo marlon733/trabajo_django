@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{% static 'myglobal.css' %}">
+  </head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CONSULATAS DE USUARIO</h1>
+            <p class="date">{% now "l, d F Y" %}</p>
+        </header>
+
+        <div class="content">
+            <!-- Variable con nombre personalizado -->
+            {% with firstname="Carlos" %}
+            <div class="highlight-box">
+                <h2>Hola {{ firstname }}, BIENVENIDO AL SISTEMA</h2>
+            </div>
+            {% endwith %}
+
+            <!-- Lista de miembros -->
+            <section class="section">
+                <h2 class="section-title">Miembros Registrados</h2>
+                <div class="card-grid">
+                    {% for x in mymembers %}
+                    <div class="card">
+                        <h3>{{ x.firstname }} {{ x.lastname }}</h3>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+      
+            {% if records_Carlos %}
+            <section class="section">
+                <h2 class="section-title">Registros Carlos</h2>
+                <ul class="list-simple">
+                    {% for x in records_Felipe %}
+                    <li>{{ x }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+
+            <!-- Rango de columnas -->
+            {% if colum_range %}
+            <section class="section">
+                <h2 class="section-title">ID DEL 1 AL 4</h2>
+                <ul class="list-simple">
+                    {% for x in colum_range %}
+                    <li>{{ x }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+
+            <!-- Búsqueda por ID -->
+            {% if busquer_id %}
+            <section class="section">
+                <h2 class="section-title">Resultado Búsqueda</h2>
+                <ul class="list-simple">
+                    {% for x in busquer_id %}
+                    <li>{{ x }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+
+            <!-- Imagen -->
+            <section class="section">
+                <div class="image-container">
+                    <img src="{% static 'members/batman.jpg' %}" alt="Batman Image">
+                </div>
+            </section>
